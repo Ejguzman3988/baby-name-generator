@@ -1,0 +1,9 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tw-color-primary: #00cc9b;
+    --tw-color-secondary: #c43720;
+    --tw-color-tertiary: #07344f;
+    --tw-color-accent: #0087a3;
+    --tw-color-highlight: #e678bb;
+  }
+}

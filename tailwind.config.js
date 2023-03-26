@@ -1,45 +1,29 @@
 module.exports = {
   mode: "jit",
   purge: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx,vue}"],
-  darkMode: "media", // or 'class'
+  darkMode: "class", // or 'class'
   theme: {
     extend: {
       colors: {
         primary: {
-          lightest: "#FDE2E2",
-          lighter: "#F8B3B3",
-          light: "#F2C4C4",
-          DEFAULT: "#ED9E9E",
-          dark: "#D48989",
-          darker: "#9C5A5A",
-          darkest: "#612E2E",
+          DEFAULT: "#00FFC5",
+          dark: "#00CC9B",
         },
         secondary: {
-          lightest: "#E2E8F0",
-          lighter: "#BFD1EA",
-          light: "#c2d5fc",
-          DEFAULT: "#8FACCE",
-          dark: "#587FBF",
-          darker: "#2E4E84",
-          darkest: "#1D2C4E",
+          DEFAULT: "#EF6351",
+          dark: "#C43720",
+        },
+        tertiary: {
+          DEFAULT: "#0B4F6C",
+          dark: "#07344F",
         },
         accent: {
-          lightest: "#C5F2C5",
-          lighter: "#98E5A4",
-          light: "#5DCE72",
-          DEFAULT: "#38B249",
-          dark: "#2B872E",
-          darker: "#1D571C",
-          darkest: "#12330A",
+          DEFAULT: "#01BAEF",
+          dark: "#0087A3",
         },
-        neutral: {
-          lightest: "#F4F4F4",
-          lighter: "#E5E5E5",
-          light: "#D4D4D4",
-          DEFAULT: "#8e9192",
-          dark: "#333333",
-          darker: "#1A1A1A",
-          darkest: "#000000",
+        highlight: {
+          DEFAULT: "#FFB2E6",
+          dark: "#E678BB",
         },
       },
       fontFamily: {
@@ -75,5 +59,12 @@ module.exports = {
       textColor: ["dark"],
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography")({
+      fontFamily: {
+        sans: ["Open Sans", "sans-serif"],
+      },
+    }),
+  ],
 };

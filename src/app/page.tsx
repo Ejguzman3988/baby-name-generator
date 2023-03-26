@@ -1,5 +1,9 @@
+import MyComponent from "./components/MyComponent";
+
 export default function Home() {
   return (
-    <main>Baby Name</main>
-  )
+    <main>
+      <MyComponent />
+    </main>
+  );
 }

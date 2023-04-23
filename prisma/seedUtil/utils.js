@@ -1,7 +1,7 @@
 const fs = require("fs");
 const { getUsData } = require("../../lib/data/util/download");
 
-const usWriteBabyFiles = async () => {
+const usWriteBabyFiles = () => {
   const usFolder = "./lib/data/us";
   fs.readdir(usFolder, (err, files) => {
     if (files && files.length > 0)

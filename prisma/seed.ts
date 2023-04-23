@@ -1,9 +1,9 @@
 const { PrismaClient } = require("@prisma/client");
-const { usWriteBabyFiles } = require("./seedUtil/utils");
+const { getBabyNamesData } = require("./seedUtil/utils");
 
 const prisma = new PrismaClient();
 async function main() {
-  usWriteBabyFiles();
+  const babyNamesData = await getBabyNamesData();
   // const alice = await prisma.user.upsert({
   //   where: { email: 'alice@prisma.io' },
   //   update: {},

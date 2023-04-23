@@ -4,6 +4,43 @@ const { getBabyNamesData } = require("./seedUtil/utils");
 const prisma = new PrismaClient();
 async function main() {
   const babyNamesData = await getBabyNamesData();
+
+  for (const babyNameArr of babyNamesData[0]) {
+    const babyName = babyNameArr[0];
+    const gender = babyNameArr[1];
+    const count = babyNameArr[2];
+    const yearStr = babyNameArr[3];
+
+    const baby = await prisma.babyName.upsert({
+      where: {
+        name: babyName,
+        gender: gender,
+      },
+      create: {
+        name: babyName,
+        gender: gender,
+      },
+    });
+    const year = await prisma.year.upsert({
+      where: {
+        year: parseInt(yearStr),
+      },
+      create: {
+        year: parseInt(yearStr),
+      },
+    });
+
+    const yearlyCount = await prisma.yearlyCount.upsert({
+      create: {
+        yearId: year[0].id,
+        babyId: baby[0].id,
+        count: count,
+      },
+    });
+
+    console.log({ yearlyCount });
+  }
+
   // const alice = await prisma.user.upsert({
   //   where: { email: 'alice@prisma.io' },
   //   update: {},

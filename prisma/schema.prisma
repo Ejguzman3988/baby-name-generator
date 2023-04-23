@@ -20,6 +20,7 @@ model User{
 model BabyName {
   id        Int             @id @default(autoincrement())
   name      String          @unique
+  gender    String
   years     YearlyCount[]
   users     SavedName[]
   tags      TagName[]

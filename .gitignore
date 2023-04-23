@@ -37,5 +37,5 @@ yarn-error.log*
 next-env.d.ts
 
 # data files
-!/lib/data/util/download.js
-/lib/data
+/lib/data/util/names.zip
+/lib/data/us
